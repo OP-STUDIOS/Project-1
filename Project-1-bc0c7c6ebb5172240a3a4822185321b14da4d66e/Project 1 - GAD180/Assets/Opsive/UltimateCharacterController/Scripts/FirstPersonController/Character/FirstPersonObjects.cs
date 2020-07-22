@@ -346,7 +346,7 @@ namespace Opsive.UltimateCharacterController.FirstPersonController.Character
                 if (m_EquippedItems[i] != null) {
                     GameObject[] baseObjects;
                     if (!m_ItemBaseObjectMap.TryGetValue(m_EquippedItems[i], out baseObjects)) {
-                        Debug.LogError("Error: Unable to find the base object for item " + m_EquippedItems[i].name + ". Ensure the item specifies a base object under the First Person Perspective Item component.");
+                       // Debug.LogError("Error: Unable to find the base object for item " + m_EquippedItems[i].name + ". Ensure the item specifies a base object under the First Person Perspective Item component.");
                         continue;
                     }
                     for (int j = 0; j < baseObjects.Length; ++j) {
