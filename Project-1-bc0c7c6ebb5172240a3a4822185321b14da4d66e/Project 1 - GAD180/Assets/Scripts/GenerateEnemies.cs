@@ -29,7 +29,7 @@ public class GenerateEnemies : MonoBehaviour
     {
             ranXPos = Random.Range(minX_Pos, MaxX_Pos);
             ranZPos = Random.Range(minZ_Pos, MaxZ_Pos);
-            Instantiate(theEnemy, new Vector3(ranXPos, Y_Pos, ranZPos), Quaternion.identity);
+            Instantiate(theEnemy, new Vector3(ranXPos, Y_Pos, ranZPos), theEnemy.transform.rotation);
             yield return new WaitForSeconds(0.1f);
     }
 }

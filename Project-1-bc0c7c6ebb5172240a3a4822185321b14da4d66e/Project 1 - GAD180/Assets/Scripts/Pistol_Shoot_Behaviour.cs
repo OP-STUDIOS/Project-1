@@ -65,7 +65,7 @@ public class Pistol_Shoot_Behaviour : MonoBehaviour
         */
         GameObject mbullet = Instantiate(bullet);
         //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), bulletSpawnPoint.parent.GetComponent<Collider>());
-        mbullet.transform.position = cameraTransform.position;
+        mbullet.transform.position = new Vector3(cameraTransform.position.x, cameraTransform.position.y, cameraTransform.position.z);
         Vector3 rotation = bullet.transform.rotation.eulerAngles;
         mbullet.transform.rotation = Quaternion.Euler(rotation.x, bullet.transform.eulerAngles.y, rotation.z);
         mbullet.GetComponent<Rigidbody>().AddForce(cameraTransform.forward * bulletSpeed, ForceMode.Impulse);

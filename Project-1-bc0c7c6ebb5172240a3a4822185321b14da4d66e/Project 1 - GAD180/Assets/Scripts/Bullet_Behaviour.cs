@@ -12,7 +12,7 @@ public class Bullet_Behaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            StartCoroutine(DestroyEnemy(other.gameObject));
             //Destroy Enemy
         }
         else if (other.gameObject.tag == "Player")
@@ -21,13 +21,16 @@ public class Bullet_Behaviour : MonoBehaviour
         }
         else
         {
-            StartCoroutine(DestroyEnemy());
+            Destroy(gameObject);
         }
     }
 
-    IEnumerator DestroyEnemy()
+    IEnumerator DestroyEnemy(GameObject gm)
     {
-        GetComponent<AudioSource>().Play();
+        FindObjectOfType<AudioManager>().PlayBulletImpactSound();
+        FindObjectOfType<GameMaster>().AddScore();
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gm);
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
