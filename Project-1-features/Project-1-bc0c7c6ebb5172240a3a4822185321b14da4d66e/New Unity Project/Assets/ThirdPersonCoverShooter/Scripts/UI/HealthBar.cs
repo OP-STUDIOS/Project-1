@@ -60,7 +60,7 @@ namespace CoverShooter
         public float hpValue;
         private void Start()
         {
-            hpValue = 1 - (1 / 255 * Value);
+            
         }
         private void LateUpdate()
         {
@@ -113,6 +113,7 @@ namespace CoverShooter
         }
         public void Update()
         {
+            hpValue = 1 - Value;
             bloodImage.color = new Color(1, 1, 1, hpValue);
         }
     }
