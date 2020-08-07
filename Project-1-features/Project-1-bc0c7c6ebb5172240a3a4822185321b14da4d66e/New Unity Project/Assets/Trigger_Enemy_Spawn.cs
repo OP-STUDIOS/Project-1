@@ -31,7 +31,7 @@ public class Trigger_Enemy_Spawn : MonoBehaviour
         if (other.gameObject.tag == "Player" )
         {
             SpawnEnemy();
-            DestroySelf();
+            
         }
     }
     private void DestroySelf()
@@ -45,6 +45,7 @@ public class Trigger_Enemy_Spawn : MonoBehaviour
         {
             Instantiate(enemyAI, spawnLocation.transform.position, spawnLocation.rotation);
             done = true;
+            DestroySelf();
             if (spawnLocation2 != null)
             {
                 {
